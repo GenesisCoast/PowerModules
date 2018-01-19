@@ -30,16 +30,3 @@ function Write-DebugLog(
     }
     if ($Header) { WriteMessage "$(GetHeader)`n" -Color White }
 }
-
-function Check-AzureRmResourceGroup([string] $ResourceGroupName) {
-    if (-not $(Get-AzureRmResourceGroup $resourceGroupName -ErrorAction SilentlyContinue)) {
-        Write-Host "Resource group '$resourceGroupName' does not exist. `n"
-        $resourceGroupLocation = Read-Host "ResourceGroupLocation (Full)"
-    
-        Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation' `n"
-        New-AzureRmResourceGroup $resourceGroupName -Location $resourceGroupLocation
-    }
-    else {
-        Write-Host "Using existing resource group '$resourceGroupName' `n"
-    }
-}
