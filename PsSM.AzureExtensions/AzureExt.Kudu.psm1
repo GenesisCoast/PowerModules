@@ -68,7 +68,7 @@ function Remove-AzureWebAppRoot(
         -ResourceGroupName $ResourceGroupName
 }
 
-function Get-AzurePublishingCredential(
+function Get-AzureWebAppPublishingCredential(
     [Parameter(Mandatory)][string] $WebAppName,
     [Parameter(Mandatory)][string] $ResourceGroupName
 ) {
